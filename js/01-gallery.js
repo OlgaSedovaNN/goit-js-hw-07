@@ -34,26 +34,16 @@ function onImgClick(evt) {
         return
     } else {
         const srcOriginal = evt.target.dataset.source
+        const altDescription = evt.target.alt
         evt.preventDefault()
-
-        evt.target.src = srcOriginal
-        createModal(evt.target)   
+        createModal(srcOriginal,altDescription)  
+        
     }  
 }
 
-// почему так не работает?
-// function createModal(imgTeg) { 
-// const modal = basicLightbox.create(`
-//     ${imgTeg}`
-// )
-//     modal.show()
-//     console.log(imgTeg)
-// }
-
-function createModal(imgTeg) { 
+function createModal(srcBig, alt) { 
 const modal = basicLightbox.create(`
-    <img class="gallery__image" src="https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg" data-source="https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg" alt="Hokkaido Flower">`
+    <img class="gallery__image" src="${srcBig}" alt="${alt}">`
 )
     modal.show()
-    console.log(imgTeg)
 }
