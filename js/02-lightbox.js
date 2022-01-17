@@ -17,3 +17,17 @@ function createImagesFromGallery(array) {
 }
 const images = createImagesFromGallery(galleryItems)
 galleryConteiner.insertAdjacentHTML('beforeend', images)
+
+let gallery = new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionSelector: 'img',
+  captionType: 'attr',
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250
+  
+});
+gallery.on('show.simplelightbox', function (evt) {
+  evt.preventDefault()
+  
+});
